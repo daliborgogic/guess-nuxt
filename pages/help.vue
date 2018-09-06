@@ -1,6 +1,6 @@
 <template lang="pug">
 div
-  p Here's how you can configure Guess.js:
+  h1 Config
   pre.
     new GuessPlugin({
      // GA view ID.

@@ -1,5 +1,7 @@
 <template lang="pug">
 div
+
+  h1 PGP Public Key
   pre.
     -----BEGIN PGP PUBLIC KEY BLOCK-----
     mQINBFrdxvcBEACwNb2oFUDPEKcFWzVhMr56dSwj3V5q7yUHQ4Xe023b60ThiNLq

@@ -1,18 +1,17 @@
 import { guess } from 'guess-webpack/api'
-// import store from '@/store'
 
 let predictions = []
 predictions = Object.keys(guess()).sort((a, b) => a.length - b.length)
 
-export default ({ app }) =>  {
-  app.router.onReady(() => {
-    app.router.afterEach(to => {
+export default ({ app: { router, store } }) =>  {
 
-      predictions.forEach(p => {
-        // app.router.prefetch(p)
-        console.log(p)
-      })
+  router.afterEach(to => {
+
+    predictions.forEach(p => {
+      console.log(p)
+      // TypeError: router.prefetch is not a function
+      router.prefetch(p)
     })
-    // store.commit('setPredictions', predictions)
+    store.commit('setPredictions', predictions)
   })
 }
