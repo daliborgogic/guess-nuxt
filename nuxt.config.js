@@ -1,8 +1,4 @@
-const webpack = require('webpack')
 const { GuessPlugin } = require('guess-webpack')
-const { GA } = process.env
-
-console.log({GA})
 
 module.exports = {
   head: {
@@ -16,20 +12,23 @@ module.exports = {
     ]
   },
 
+  plugins: [
+    { src: '~/plugins/guess', ssr: false }
+  ],
+
   build: {
-    parallel: true,
     extend(config, ctx) {
-      // if (ctx.isClient) {
-      //   config.module.rules.push(
-      //     new GuessPlugin({
-      //       GA,
-      //       runtime: {
-      //         delegate: true
-      //       },
-      //       routeProvider: false
-      //     })
-      //   )
-      // }
+      if (ctx.isServer) return config
+      config.plugins.push(
+        new GuessPlugin({
+          GA: 'XXXXXXXX', // 'XXXXXXXX'
+          runtime: {
+            delegate: true
+          },
+          routeProvider: false
+        })
+      )
+      return config
     }
   }
 }
