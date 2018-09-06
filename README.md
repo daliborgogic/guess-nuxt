@@ -16,9 +16,36 @@ For more information on Guess.js, take a look at the following links:
 
 Here's how you can try the demo:
 
+Install a package, and any packages that it depends on:
+
 ```bash
-git clone git@github.com:daliborgogic/guess-nuxt
-cd guess-nuxt && npm i && npm run build && npm start
+npm i
+```
+
+Set Environment Variables:
+
+```bash
+$ cat > .env.dev << EOL
+GA=UA-XXXXXXXX-X
+EOL
+```
+
+Launch a development server on localhost:3000 with hot-reloading:
+
+```bash
+$  env $(grep -v '^#' .env.dev | xargs -d '\n' -t) npm run dev
+```
+
+Start the server in production mode:
+
+```bash
+$  env $(grep -v '^#' .env | xargs -d '\n') npm start
+```
+
+Build application with webpack:
+
+```bash
+$ npm run build
 ```
 
 ## Integration
@@ -38,7 +65,7 @@ module.exports = {
   build: {
     extend(config, ctx) {
       if (ctx.isServer) return config
-      config.plugins.push(
+      config.module.rules.push(
         new GuessPlugin({
           GA: 'XXXXXX',
           runtime: {
@@ -63,17 +90,17 @@ As part of the object literal we also set `runtime.delegate: true` since we want
 
 ### Prefetch Pages
 
-The final piece of the integration is performing the actual prefetching. In your layout component (see `components/layout.js`) add:
+The final piece of the integration is performing the actual prefetching. In your layout component (see `layouts/default.vue`) add:
 
 ```javascript
-import { guess } from 'guess-webpack/api';
-...
-if (typeof window !== 'undefined') {
-  Object.keys(guess()).forEach(p => router.prefetch(p))
+import { guess } from 'guess-webpack/api'
+
+mounted () {
+  Object.keys(guess()).forEach(p => this.$router.prefetch(p))
 }
 ...
 ```
 
-Keep in mind that we check if `window` is `"undefined"`. This is required because we don't want to run Guess.js on the server. When we invoke `guess()`, we'll return a set of routes where each route will have an associated probability for the user to visit it.
+We don't want to run Guess.js on the server. When we invoke `guess()`, we'll return a set of routes where each route will have an associated probability for the user to visit it.
 
 The routes that `guess()` returns depend on the Google Analytics report that it has extracted, together with the user's effective connection type.

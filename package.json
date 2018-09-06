@@ -1,0 +1,34 @@
+{
+  "name": "guess-nuxt",
+  "version": "1.0.0",
+  "description": "Experiment for integration of Guess.js with Nuxt.js",
+  "main": "index.js",
+  "scripts": {
+    "dev": "node_modules/.bin/micro -l tcp://0.0.0.0:3000",
+    "build": "nuxt build",
+    "start": "NODE_ENV=production node_modules/.bin/micro -l tcp://0.0.0.0:3000"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/daliborgogic/guess-nuxt.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/daliborgogic/guess-nuxt/issues"
+  },
+  "homepage": "https://github.com/daliborgogic/guess-nuxt#readme",
+  "dependencies": {
+    "guess-webpack": "^0.1.5",
+    "micro": "^9.3.3",
+    "nuxt-edge": "^2.0.0-25603961.baaf67d"
+  },
+  "devDependencies": {
+    "pug": "^2.0.3",
+    "pug-plain-loader": "^1.0.0",
+    "stylus": "^0.54.5",
+    "stylus-loader": "^3.0.2",
+    "webpack": "^4.17.2"
+  }
+}
