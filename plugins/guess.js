@@ -1,17 +1,19 @@
+import Vue from 'vue'
 import { guess } from 'guess-webpack/api'
 
-let predictions = []
-predictions = Object.keys(guess()).sort((a, b) => a.length - b.length)
-
 export default ({ app: { router, store } }) =>  {
-
-  router.afterEach(to => {
-
-    predictions.forEach(p => {
-      console.log(p)
-      // TypeError: router.prefetch is not a function
-      router.prefetch(p)
+  router.afterEach((to) => {
+    // Wait for page to be displayed
+    Vue.nextTick(() => {
+      let predictions = Object.keys(guess()).sort((a, b) => a.probability - b.probability)
+      predictions.forEach((path) => {
+        router.getMatchedComponents(path).forEach((Component) => {
+          if (typeof Component === 'function') {
+            try { Component() } catch (e) {}
+          }
+        })
+      })
+      store.commit('setPredictions', predictions)
     })
-    store.commit('setPredictions', predictions)
   })
 }
