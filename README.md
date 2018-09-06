@@ -14,16 +14,23 @@ For more information on Guess.js, take a look at the following links:
 
 ## Usage
 
-Here's how you can try the demo:
-
-
-
 ```bash
 $ git clone git@github.com:daliborgogic/guess-nuxt && \
-cd guess-nuxt && \
-npm i && \
-npm run build && \
-npm start
+cd guess-nuxt
+
+# Environments
+$ $ cat > .env << EOL
+GA=XXXXXXX
+EOL
+
+# Dev
+$ env $(grep -v '^#' .env | xargs -d '\n' -t) npm run dev
+
+# Build
+$ npm run build
+
+# Start
+$ env $(grep -v '^#' .env | xargs -d '\n') npm start
 ```
 
 ## Integration
