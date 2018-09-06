@@ -19,20 +19,20 @@ module.exports = {
 
   build: {
     extend(config, ctx) {
-      if (ctx.isServer) return config
-      config.plugins.push(
-        new GuessPlugin({
-          // Google Analitycs view ID.
-          GA,
-          // Hints Guess to not perform pre-fetching and delegate this logic to its consumer.
-          runtime: {
-            delegate: true
-          },
-          // Guess does not have to collect the routes and the corresponding bundle entry points.
-          routeProvider: false
-        })
-      )
-      return config
+      if (ctx.isClient) {
+        config.plugins.push(
+          new GuessPlugin({
+            // Google Analitycs view ID.
+            GA,
+            // Hints Guess to not perform pre-fetching and delegate this logic to its consumer.
+            runtime: {
+              delegate: true
+            },
+            // Guess does not have to collect the routes and the corresponding bundle entry points.
+            routeProvider: false
+          })
+        )
+      }
     }
   }
 }
