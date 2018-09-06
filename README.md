@@ -19,8 +19,8 @@ Here's how you can try the demo:
 
 
 ```bash
-$ git clone git@github.com:daliborgogic/guess-next && \
-cd guess-next && \
+$ git clone git@github.com:daliborgogic/guess-nuxt && \
+cd guess-nuxt && \
 npm i && \
 npm run build && \
 npm start
