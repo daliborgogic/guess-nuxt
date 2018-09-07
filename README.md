@@ -9,7 +9,7 @@
     <img src="https://raw.githubusercontent.com/daliborgogic/guess-nuxt/master/assets/demo.gif"><br>
     DEMO
   </a>
-</p>p>
+</p>
 
 In this particular example, we combine Guess.js with Nuxt.js to introduce predictive prefetching of JavaScript bundles. Based on user navigation patterns collected from Google Analytics or other source, Guess.js builds a machine-learning model to predict and prefetch JavaScript that will be required in each subsequent page.
 
