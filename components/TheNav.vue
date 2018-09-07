@@ -21,5 +21,4 @@ a
     color #000
 .nuxt-link-exact-active
   color #000
-// .nuxt-link-active
 </style>

@@ -1,4 +1,4 @@
 node_modules
 .nuxt
 NOTE.md
-.env*
+.env
