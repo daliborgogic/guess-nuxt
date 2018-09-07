@@ -2,6 +2,10 @@
 
 **[Guess.js](https://github.com/guess-js/guess) is a collection of libraries & tools for enabling data-driven user-experience on the web.**
 
+**[Nuxt.js](https://github.com/nuxt/nuxt.js) is a Vue.js Meta Framework to create complex, fast & universal web applications quickly.**
+
+<img src="https://github.com/daliborgogic/guess-nuxt/tree/master/assets/demo.gif">
+
 In this particular example, we combine Guess.js with Nuxt.js to introduce predictive prefetching of JavaScript bundles. Based on user navigation patterns collected from Google Analytics or other source, Guess.js builds a machine-learning model to predict and prefetch JavaScript that will be required in each subsequent page.
 
 Based on early benchmarks, this can improve the perceived page load performance with 20%.
@@ -63,34 +67,12 @@ module.exports = {
 }
 ```
 
-We set the value of the `webpack` property of the object literal we set as value to `module.exports`. We set it to a function which alters the `GuessPlugin` to the `config.plugins.push` array. Notice that we check if Nuxt.js has invoked webpack on the server and we return.
-
-As a value of the `GA` property, we set a Google Analytics View ID. At build time, Guess.js will open a browser and try to get read-only access to extract a report and use it for the predictive analytics.
-
-*Note that Google Analytics is not the only provider you can use to provide the user navigation report that Guess.js uses. In this example application we provide the report from a JSON file.*
-
-As part of the object literal we also set `runtime.delegate: true` since we want to delegate the prefetching logic to Nuxt.js. Finally, we set `routeProvider: false`. This hints Guess.js that it shouldn't parse the application and instead, it'd rely on Nuxt.js for providing the routing information.
-
-### Prefetch Pages
-
-The final piece of the integration is performing the actual prefetching. In your layout component (see `layouts/default.vue`) add:
-
-```javascript
-import { guess } from 'guess-webpack/api'
-
-mounted () {
-  if (typeof window !== 'undefined') {
-    Object.keys(guess()).forEach(p => this.$router.prefetch(p))
-  }
-}
-...
-```
-
-Keep in mind that we check if window is "undefined". This is required because we don't want to run Guess.js on the server. When we invoke guess(), we'll return a set of routes where each route will have an associated probability for the user to visit it.
-
 The routes that `guess()` returns depend on the Google Analytics report that it has extracted, together with the user's effective connection type.
 
+### Credit 
 
-###License
+Based on [guess-next](https://github.com/mgechev/guess-next) by Minko Gechev [mgechev](https://github.com/mgechev) 
+
+### License
 
 MIT
