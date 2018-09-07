@@ -4,7 +4,12 @@
 
 **[Nuxt.js](https://github.com/nuxt/nuxt.js) is a Vue.js Meta Framework to create complex, fast & universal web applications quickly.**
 
-<img src="https://raw.githubusercontent.com/daliborgogic/guess-nuxt/master/assets/demo.gif">
+<p align="center">
+  <a href="https://guess-nuxt.now.sh/">
+    <img src="https://raw.githubusercontent.com/daliborgogic/guess-nuxt/master/assets/demo.gif"><br>
+    DEMO
+  </a>
+</p>p>
 
 In this particular example, we combine Guess.js with Nuxt.js to introduce predictive prefetching of JavaScript bundles. Based on user navigation patterns collected from Google Analytics or other source, Guess.js builds a machine-learning model to predict and prefetch JavaScript that will be required in each subsequent page.
 
@@ -16,7 +21,7 @@ For more information on Guess.js, take a look at the following links:
 * [Using Guess.js with static sites](https://github.com/guess-js/guess/tree/master/experiments/guess-static-sites)
 * [Using Guess.js with Angular, React, and Gatsby](https://github.com/guess-js/guess/tree/master/packages/guess-webpack)
 
-## Usage
+### Usage
 
 ```bash
 $ git clone git@github.com:daliborgogic/guess-nuxt && \
@@ -35,7 +40,7 @@ $ npm run build
 $ npm start
 ```
 
-## Integration
+### Integration
 
 Guess.js (**0.1.5 and above**) works with Nuxt.js with only two points of integration. All you need to do is add the `GuessPlugin` to `nuxt.config.js` and introduce a snippet for prefetching the pages which are likely to be visited Nuxt.
 
