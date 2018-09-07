@@ -1,7 +1,9 @@
+import { guess } from 'guess-webpack/api';
+
 const { GuessPlugin } = require('guess-webpack')
 const { GA } = process.env
 
-module.exports = {
+export default {
   head: {
     htmlAttrs: {
       lang: 'en',
@@ -20,17 +22,25 @@ module.exports = {
   build: {
     extend(config, ctx) {
       if (ctx.isClient) {
+        const guessOptions = {
+          // Hints Guess to not perform pre-fetching and delegate this logic to its consumer.
+          runtime: {
+            delegate: true,
+            prefetchConfig: {
+              '4g': 0.3,
+              '3g': 0.3,
+              '2g': 0.3,
+              'slow-2g': 0.3
+            }
+          },
+          // Guess does not have to collect the routes and the corresponding bundle entry points.
+          routeProvider: false
+        }
+        if (GA) guessOptions.GA = GA
+        else guessOptions.reportProvider = () => Promise.resolve(JSON.parse(require('fs').readFileSync('./routes.json')));
+
         config.plugins.push(
-          new GuessPlugin({
-            // Google Analitycs view ID.
-            GA,
-            // Hints Guess to not perform pre-fetching and delegate this logic to its consumer.
-            runtime: {
-              delegate: true
-            },
-            // Guess does not have to collect the routes and the corresponding bundle entry points.
-            routeProvider: false
-          })
+          new GuessPlugin(guessOptions)
         )
       }
     }

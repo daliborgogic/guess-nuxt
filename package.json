@@ -1,12 +1,12 @@
 {
   "name": "guess-nuxt",
   "version": "1.0.0",
-  "description": "Experiment for integration of Guess.js with Nuxt.js",
+  "description": "Guess.js with Nuxt.js",
   "main": "index.js",
   "scripts": {
-    "dev": "node_modules/.bin/micro -l tcp://0.0.0.0:3000",
+    "dev": "nuxt",
     "build": "nuxt build",
-    "start": "NODE_ENV=production node_modules/.bin/micro -l tcp://0.0.0.0:3000"
+    "start": "nuxt-start"
   },
   "repository": {
     "type": "git",
@@ -20,11 +20,11 @@
   },
   "homepage": "https://github.com/daliborgogic/guess-nuxt#readme",
   "dependencies": {
-    "micro": "^9.3.3",
-    "nuxt-edge": "^2.0.0-25603961.baaf67d"
+    "nuxt-start-edge": "^2.0.0-25603961.baaf67d"
   },
   "devDependencies": {
     "guess-webpack": "^0.1.5",
+    "nuxt-edge": "^2.0.0-25603961.baaf67d",
     "pug": "^2.0.3",
     "pug-plain-loader": "^1.0.0",
     "stylus": "^0.54.5",
