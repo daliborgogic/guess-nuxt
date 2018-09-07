@@ -4,7 +4,7 @@
 
 **[Nuxt.js](https://github.com/nuxt/nuxt.js) is a Vue.js Meta Framework to create complex, fast & universal web applications quickly.**
 
-<img src="https://github.com/daliborgogic/guess-nuxt/tree/master/assets/demo.gif">
+<img src="https://raw.githubusercontent.com/daliborgogic/guess-nuxt/master/assets/demo.gif">
 
 In this particular example, we combine Guess.js with Nuxt.js to introduce predictive prefetching of JavaScript bundles. Based on user navigation patterns collected from Google Analytics or other source, Guess.js builds a machine-learning model to predict and prefetch JavaScript that will be required in each subsequent page.
 
