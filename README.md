@@ -25,7 +25,8 @@ For more information on Guess.js, take a look at the following links:
 
 ```bash
 $ git clone git@github.com:daliborgogic/guess-nuxt && \
-cd guess-nuxt
+cd guess-nuxt && \
+npm i
 
 $ mv .env.example .env
 # Update GA in .env
