@@ -69,9 +69,9 @@ module.exports = {
 
 The routes that `guess()` returns depend on the Google Analytics report that it has extracted, together with the user's effective connection type.
 
-### Credit 
+### Credits
 
-Based on [guess-next](https://github.com/mgechev/guess-next) by Minko Gechev [mgechev](https://github.com/mgechev) 
+Based on [guess-next](https://github.com/mgechev/guess-next) by Minko Gechev [mgechev](https://github.com/mgechev) and Sébastien Chopin [Atinux](https://github.com/Atinux) for pull request [#1](https://github.com/daliborgogic/guess-nuxt/pull/1).
 
 ### License
 
