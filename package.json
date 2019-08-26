@@ -1,5 +1,5 @@
 {
-  "name": "@daliborgogic.com/guess-nuxt",
+  "name": "@daliborgogic/guess-nuxt",
   "version": "1.0.0",
   "description": "Guess.js with Nuxt.js",
   "main": "index.js",
