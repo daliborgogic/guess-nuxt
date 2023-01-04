@@ -24,7 +24,7 @@
   },
   "devDependencies": {
     "guess-webpack": "^0.1.5",
-    "nuxt-edge": "^2.0.0-25603961.baaf67d",
+    "nuxt-edge": "^2.16.0-27720022.54e852f",
     "pug": "^2.0.3",
     "pug-plain-loader": "^1.0.0",
     "stylus": "^0.54.5",
